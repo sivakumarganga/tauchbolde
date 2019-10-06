@@ -22,8 +22,8 @@ namespace Tauchbolde.Mobile.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as EventListRow;
-            if (item == null)
+            var row = args.SelectedItem as EventListRow;
+            if (row == null)
                 return;
 
             //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));

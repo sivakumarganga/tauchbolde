@@ -7,14 +7,24 @@
     mc:Ignorable="d"
     x:Class="Tauchbolde.Mobile.Views.ItemsPage" 
     Title="{Binding Title}" 
-    x:Name="BrowseItemsPage">
+    x:Name="EventListPage">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <ListView x:Name="ItemsListView" ItemsSource="{Binding Rows}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+        <ListView
+            x:Name="ItemsListView"
+            ItemsSource="{Binding Rows}"
+            VerticalOptions="FillAndExpand"
+            HasUnevenRows="true"
+            RefreshCommand="{Binding LoadItemsCommand}"
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            CachingStrategy="RecycleElement"
+            ItemSelected="OnItemSelected">
+
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>First Item</x:String>
@@ -25,6 +35,7 @@
                     <x:String>Sixth Item</x:String>
                 </x:Array>
             </d:ListView.ItemsSource>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -35,6 +46,7 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
     </StackLayout>
 </ContentPage>

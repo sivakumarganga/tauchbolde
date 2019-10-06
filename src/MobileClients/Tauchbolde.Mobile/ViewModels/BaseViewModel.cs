@@ -46,7 +46,7 @@ namespace Tauchbolde.Mobile.ViewModels
             return true;
         }
 
-        #region INotifyPropertyChanged
+        // INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
@@ -56,6 +56,5 @@ namespace Tauchbolde.Mobile.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
     }
 }

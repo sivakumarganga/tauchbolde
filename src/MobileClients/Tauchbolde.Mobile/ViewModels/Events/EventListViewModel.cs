@@ -16,7 +16,7 @@ namespace Tauchbolde.Mobile.ViewModels.Events
 
         public EventListsViewModel()
         {
-            Title = "Browse";
+            Title = "Aktivitäten";
             Rows = new ObservableCollection<EventListRow>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
