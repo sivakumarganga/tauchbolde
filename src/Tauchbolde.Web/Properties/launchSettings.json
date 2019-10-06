@@ -16,6 +16,7 @@
     },
     "Tauchbolde.Web": {
       "commandName": "Project",
+      "launchBrowser": true,
       "environmentVariables": {
         "SMTP__SystemSenderEmailAddress": "marc@marcduerst.com",
         "SMTP__Host": "asmtp.mail.hostpoint.ch",
