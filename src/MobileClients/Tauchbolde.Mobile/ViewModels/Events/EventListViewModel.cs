@@ -14,11 +14,26 @@ namespace Tauchbolde.Mobile.ViewModels.Events
         public ObservableCollection<EventListRow> Rows { get; set;  }
         public Command LoadItemsCommand { get; set; }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                if (isBusy != value)
+                {
+                    isBusy = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public EventListsViewModel()
         {
             Title = "Aktivitäten";
             Rows = new ObservableCollection<EventListRow>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            IsBusy = false;
 
 //            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
 //            {
