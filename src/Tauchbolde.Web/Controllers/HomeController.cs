@@ -78,6 +78,7 @@ namespace Tauchbolde.Web.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Contact(ContactViewModel model)
         {
             if (ModelState.IsValid)
