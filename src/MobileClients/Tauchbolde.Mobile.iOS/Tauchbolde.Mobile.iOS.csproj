@@ -137,10 +137,4 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Tauchbolde.Mobile\Tauchbolde.Mobile.csproj">
-      <Project>{A165FB54-BE35-4CD2-849E-1666DDF66557}</Project>
-      <Name>Tauchbolde.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
