@@ -3,9 +3,7 @@ using System.Threading.Tasks;
 using JetBrains.Annotations;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Tauchbolde.Application.OldDomainServices.Users;
 using Tauchbolde.Application.UseCases.Event.ChangeParticipationUseCase;
 using Tauchbolde.Application.UseCases.Event.DeleteCommentUseCase;
 using Tauchbolde.Application.UseCases.Event.EditCommentUseCase;
@@ -16,9 +14,9 @@ using Tauchbolde.Application.UseCases.Event.GetEventEditDetailsUseCase;
 using Tauchbolde.Application.UseCases.Event.GetEventListUseCase;
 using Tauchbolde.Application.UseCases.Event.NewCommentUseCase;
 using Tauchbolde.InterfaceAdapters.Event;
-using Tauchbolde.InterfaceAdapters.Event.Details;
-using Tauchbolde.InterfaceAdapters.Event.EditDetails;
-using Tauchbolde.InterfaceAdapters.Event.List;
+using Tauchbolde.InterfaceAdapters.MVC.Presenters.Events.Details;
+using Tauchbolde.InterfaceAdapters.MVC.Presenters.Events.EditDetails;
+using Tauchbolde.InterfaceAdapters.MVC.Presenters.Events.List;
 using Tauchbolde.SharedKernel;
 using Tauchbolde.Web.Core;
 using Tauchbolde.Web.Models.EventViewModels;
@@ -30,10 +28,7 @@ namespace Tauchbolde.Web.Controllers
     {
         [NotNull] private readonly IMediator mediator;
 
-        public EventController(
-            [NotNull] UserManager<IdentityUser> userManager,
-            [NotNull] IDiverService diverService,
-            [NotNull] IMediator mediator)
+        public EventController([NotNull] IMediator mediator)
         {
             this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
@@ -64,7 +59,6 @@ namespace Tauchbolde.Web.Controllers
             return View(presenter.GetViewModel());
         }
 
-
         // GET: Event/Edit/5
         public async Task<ActionResult> Edit(Guid? id)
         {
@@ -83,9 +77,7 @@ namespace Tauchbolde.Web.Controllers
             return View(presenter.GetViewModel());
         }
 
-
         // POST: Event/Edit/5
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Guid id, MvcEventEditDetailsViewModel model)

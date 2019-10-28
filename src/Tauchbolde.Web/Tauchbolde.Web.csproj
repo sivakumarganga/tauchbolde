@@ -13,16 +13,16 @@
       <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
       <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" PrivateAssets="All" />
     <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc.Core" Version="4.7.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.11.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.ApplicationInsights.HostingStartup" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.AzureAppServicesIntegration" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureAppServicesIntegration" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.AzureAppServices.HostingStartup" Version="2.2.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.2.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6" PrivateAssets="All" />
     <PackageReference Include="Markdig" Version="0.17.1" />
     <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
@@ -30,25 +30,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tauchbolde.Application\Tauchbolde.Application.csproj" />
-    <ProjectReference Include="..\Tauchbolde.Domain\Tauchbolde.Domain.csproj" />
     <ProjectReference Include="..\Tauchbolde.Driver.ApplicationInsights\Tauchbolde.Driver.ApplicationInsights.csproj" />
     <ProjectReference Include="..\Tauchbolde.Driver.DataAccessSql\Tauchbolde.Driver.DataAccessSql.csproj" />
     <ProjectReference Include="..\Tauchbolde.Driver.ImageSharp\Tauchbolde.Driver.ImageSharp.csproj" />
     <ProjectReference Include="..\Tauchbolde.Driver.PhotoStorage\Tauchbolde.Driver.PhotoStorage.csproj" />
     <ProjectReference Include="..\Tauchbolde.Driver.SmtpEmail\Tauchbolde.Driver.SmtpEmail.csproj" />
+    <ProjectReference Include="..\Tauchbolde.InterfaceAdapters.MVC\Tauchbolde.InterfaceAdapters.MVC.csproj" />
+    <ProjectReference Include="..\Tauchbolde.InterfaceAdapters.WebApi\Tauchbolde.InterfaceAdapters.WebApi.csproj" />
     <ProjectReference Include="..\Tauchbolde.InterfaceAdapters\Tauchbolde.InterfaceAdapters.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\AboutViewModels\" />
-    <Folder Include="Models\MassMail" />
     <Folder Include="Views\UserProfile\" />
-    <Folder Include="Models\UserProfileModels\" />
     <Folder Include="Core\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Admin\" />
-    <Folder Include="Models\AdminViewModels\" />
     <Folder Include="Views\MassMail\" />
-    <Folder Include="Models\MassMail\" />
     <Folder Include="Models\HomeViewModels\" />
     <Folder Include="Views\Shared\Components\Avatar\" />
     <Folder Include="Filters\" />

@@ -148,13 +148,6 @@ namespace Tauchbolde.Web
                 ));
             });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowTwitter", builder => builder
-                    .WithOrigins("https://platform.twitter.com")
-                    .WithOrigins("https://twitter.com"));
-            });
-
             services.AddMvc(options =>
                 {
                     options.Filters.Add(typeof(BuildNumberFilter));
@@ -165,7 +158,8 @@ namespace Tauchbolde.Web
                     options => options.SerializerSettings.ReferenceLoopHandling =
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-            
+
+            services.AddApplicationInsightsTelemetry();
             services.AddTransient<IEmailSender, IdentityMessageSender>();
             ApplicationServices.Register(services, Configuration, hostingEnvironment);
         }

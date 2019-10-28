@@ -8,7 +8,8 @@ namespace Tauchbolde.SharedKernel
 {
     public class UseCaseResult
     {
-        public UseCaseResult([CanBeNull] IEnumerable<ValidationFailure> errors = null,
+        public UseCaseResult(
+            [CanBeNull] IEnumerable<ValidationFailure> errors = null,
             ResultCategory? resultCategory = null)
         {
             Errors = errors ?? Enumerable.Empty<ValidationFailure>();
@@ -23,13 +24,17 @@ namespace Tauchbolde.SharedKernel
         public static UseCaseResult Success() => new UseCaseResult();
 
         [NotNull]
-        public static UseCaseResult Fail(IEnumerable<ValidationFailure> errors = null,
-            ResultCategory? resultCategory = null)
+        public static UseCaseResult Fail(
+            IEnumerable<ValidationFailure> errors = null,
+            ResultCategory resultCategory = ResultCategory.GeneralFailure)
             => new UseCaseResult(errors, resultCategory);
 
         [NotNull]
         public static UseCaseResult NotFound(IEnumerable<ValidationFailure> errors = null)
             => new UseCaseResult(errors, ResultCategory.NotFound);
+        
+        [NotNull]
+        public static UseCaseResult AccessDenied() => new UseCaseResult(resultCategory: ResultCategory.AccessDenied);
 
         [NotNull]
         public static UseCaseResult ValidationFailed(IEnumerable<ValidationFailure> errors = null)
@@ -60,7 +65,7 @@ namespace Tauchbolde.SharedKernel
             new UseCaseResult<TPayload>(payload: payload);
 
         [NotNull]
-        public new static UseCaseResult<TPayload> Fail(IEnumerable<ValidationFailure> errors = null,
+        public static UseCaseResult<TPayload> Fail(IEnumerable<ValidationFailure> errors = null,
             ResultCategory? resultCategory = null)
             => new UseCaseResult<TPayload>(errors, resultCategory: resultCategory);
 
@@ -78,6 +83,8 @@ namespace Tauchbolde.SharedKernel
                         $"{objectName} with ID [{id}] ({propertyName}) not found!", id)
                 },
                 resultCategory: ResultCategory.NotFound);
+
+        public new static UseCaseResult<TPayload> AccessDenied() => new UseCaseResult<TPayload>(resultCategory: ResultCategory.AccessDenied);
 
         [NotNull]
         public new static UseCaseResult<TPayload> ValidationFailed(IEnumerable<ValidationFailure> errors = null)
