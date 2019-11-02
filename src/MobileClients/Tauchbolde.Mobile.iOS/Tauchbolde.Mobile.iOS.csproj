@@ -136,5 +136,19 @@
       <Version>12.0.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tauchbolde.Mobile.Application.Mobile\Tauchbolde.Mobile.Application.csproj">
+      <Project>{7CE650A3-FD69-48E4-A080-C92164A755E6}</Project>
+      <Name>Tauchbolde.Mobile.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tauchbolde.Mobile.Domain\Tauchbolde.Mobile.Domain.csproj">
+      <Project>{F72BBBDA-0BA4-41E7-ABDD-9939E4FEF8B3}</Project>
+      <Name>Tauchbolde.Mobile.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tauchbolde.Mobile.Presentation\Tauchbolde.Mobile.Presentation.csproj">
+      <Project>{D580F86B-5492-42EF-BBDA-02F02F536729}</Project>
+      <Name>Tauchbolde.Mobile.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
