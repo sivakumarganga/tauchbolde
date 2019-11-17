@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Tauchbolde.Mobile.Services;
 using Tauchbolde.Mobile.Views;
+using Tauchbolde.Mobile.Application.Services.Communication;
 
 namespace Tauchbolde.Mobile
 {
@@ -14,6 +15,9 @@ namespace Tauchbolde.Mobile
             InitializeComponent();
 
             DependencyService.Register<EventListRowMockStore>();
+            DependencyService.Register<IRestService, RestService>();
+            DependencyService.Register<IUrlManager, UrlManager>();
+
             MainPage = new MainPage();
         }
 

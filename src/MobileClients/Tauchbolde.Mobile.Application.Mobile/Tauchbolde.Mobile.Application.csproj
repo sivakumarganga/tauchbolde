@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Events\" />
+    <Folder Include="Services\Communication\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Item.cs" />
